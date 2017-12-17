@@ -17,11 +17,11 @@ typedef struct {
     PyKAdminObject *kadmin;
     kadm5_principal_ent_rec entry;
 
-    unsigned int mask; 
+    unsigned int mask;
 
 } PyKAdminPrincipalObject;
 
-PyTypeObject PyKAdminPrincipalObject_Type;
+extern PyTypeObject PyKAdminPrincipalObject_Type;
 
 //#define PyKAdminPrincipalObject_Check(principal) PyObject_TypeCheck(principal, &PyKAdminPrincipalObject_Type)
 #define PyKAdminPrincipalObject_CheckExact(obj) (Py_TYPE(obj) == &PyKAdminPrincipalObject_Type)
@@ -31,7 +31,7 @@ PyKAdminPrincipalObject *PyKAdminPrincipalObject_principal_with_db_entry(PyKAdmi
 PyKAdminPrincipalObject *PyKAdminPrincipalObject_principal_with_kadm_entry(PyKAdminObject *kadmin, kadm5_principal_ent_rec *entry);
 
 
-void PyKAdminPrincipalObject_destroy(PyKAdminPrincipalObject *self); 
+void PyKAdminPrincipalObject_destroy(PyKAdminPrincipalObject *self);
 
 
 #endif

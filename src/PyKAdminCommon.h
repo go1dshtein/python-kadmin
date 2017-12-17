@@ -35,9 +35,9 @@ int pykadmin_seconds_from_pydatetime(PyObject *delta);
 char *pykadmin_timestamp_as_isodate(time_t timestamp, const char *zero);
 char *pykadmin_timestamp_as_deltastr(int seconds, const char *zero);
 
-krb5_error_code pykadmin_kadm_from_kdb(PyKAdminObject *kadmin, krb5_db_entry *kdb, kadm5_principal_ent_rec *entry, long mask); 
+krb5_error_code pykadmin_kadm_from_kdb(PyKAdminObject *kadmin, krb5_db_entry *kdb, kadm5_principal_ent_rec *entry, long mask);
 
-krb5_error_code pykadmin_policy_kadm_from_osa(krb5_context ctx, osa_policy_ent_rec *osa, kadm5_policy_ent_rec *entry, long mask); 
+krb5_error_code pykadmin_policy_kadm_from_osa(krb5_context ctx, osa_policy_ent_rec *osa, kadm5_policy_ent_rec *entry, long mask);
 
 int pykadmin_principal_ent_rec_compare(krb5_context ctx, kadm5_principal_ent_rec *a, kadm5_principal_ent_rec *b);
 int pykadmin_policy_ent_rec_compare(krb5_context ctx, kadm5_policy_ent_rec *a, kadm5_policy_ent_rec *b);
@@ -49,7 +49,7 @@ int pykadmin_policy_ent_rec_compare(krb5_context ctx, kadm5_policy_ent_rec *a, k
 void pykadmin_append_tl_data(krb5_int16 *n_tl_datap, krb5_tl_data **tl_datap,
             krb5_int16 tl_type, krb5_ui_2 len, krb5_octet *contents);
 
-// this call will handle parsing, tl_data copy, and freeing the db_args. 
+// this call will handle parsing, tl_data copy, and freeing the db_args.
 //  resulting tl_data will be freed by the call to kadm5_free_principal_ent()
 
 void pykadmin_principal_append_db_args(kadm5_principal_ent_rec *entry, PyObject *object);

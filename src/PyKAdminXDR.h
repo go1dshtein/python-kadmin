@@ -2,11 +2,12 @@
 #ifndef PYKADMINXDR_H
 #define PYKADMINXDR_H
 
+#include <time.h>
 #include <krb5.h>
 #include <kdb.h>
 #include <gssrpc/rpc.h>
 
-/* structures from the krb5 source; 
+/* structures from the krb5 source;
 	these are not exported anywhere so we must custom build them to extract xdr data wihout breaking APIs
 	*/
 
@@ -31,6 +32,6 @@ int pykadmin_xdr_nullstring(XDR *xdrs, char **string);
 int pykadmin_xdr_osa_pw_hist_ent(XDR *xdrs, osa_pw_hist_ent *objp);
 int pykadmin_xdr_osa_princ_ent_rec(XDR *xdrs, osa_princ_ent_rec *entry);
 
-void pykadmin_xdr_osa_free_princ_ent(osa_princ_ent_rec *entry); 
+void pykadmin_xdr_osa_free_princ_ent(osa_princ_ent_rec *entry);
 
 #endif

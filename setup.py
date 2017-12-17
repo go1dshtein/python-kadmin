@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import platform
 from distutils.core import setup, Extension
 from distutils.util import execute, newer
 from distutils.spawn import spawn
@@ -16,6 +16,11 @@ del os.link
 if newer('./src/getdate.y', './src/getdate.c'):
     execute(spawn, (['bison', '-y', '-o', './src/getdate.c', './src/getdate.y'],))
 
+include_dirs = ["/usr/include/", "/usr/include/et/"]
+if platform.system() == 'Darwin':
+    include_dirs += ['/opt/local/include']
+
+
 setup(name='python-kadmin',
       version='0.1.1',
       description='Python module for kerberos admin (kadm5)',
@@ -28,7 +33,7 @@ setup(name='python-kadmin',
           Extension(
               "kadmin",
               libraries=["krb5", "kadm5clnt", "kdb5"],
-              include_dirs=["/usr/include/", "/usr/include/et/"],
+              include_dirs=include_dirs,
               sources=[
                   "src/kadmin.c",
                   "src/PyKAdminErrors.c",
@@ -70,7 +75,7 @@ setup(name='python-kadmin-local',
           Extension(
               "kadmin_local",
               libraries=["krb5", "kadm5srv", "kdb5"],
-              include_dirs=["/usr/include/", "/usr/include/et/"],
+              include_dirs=include_dirs,
               sources=[
                   "src/kadmin.c",
                   "src/PyKAdminErrors.c",
