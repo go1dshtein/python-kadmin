@@ -1,0 +1,5 @@
+python-kadmin ({version}) xenial; urgency=low
+
+  * Changelog should be here
+
+ -- Kirill Goldshtein <goldshtein.kirill@gmail.com>  {datetime}

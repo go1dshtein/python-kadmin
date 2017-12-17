@@ -1,0 +1,14 @@
+Source: python-kadmin
+Section: python
+Priority: extra
+Maintainer: Russell Jancewicz <russell.jancewicz@gmail.com>
+Uploaders: Kirill Goldshtein <goldshtein.kirill@gmail.com>
+Build-Depends: debhelper (>= 9), dh-python, python3-all,
+               bison, krb5-multidev, python3-dev
+Standards-Version: 3.9.6
+
+Package: python3-kadmin
+Architecture: all
+Depends: python3, ${misc:Depends}, libkadm5clnt-mit9, libkrb5-3
+Description: Python module for kerberos admin (kadm5)
+  .
